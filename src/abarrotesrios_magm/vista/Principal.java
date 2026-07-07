@@ -60,12 +60,12 @@ public class Principal extends javax.swing.JFrame {
         jpBotones = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
         btnClientes = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        btnProveedor = new javax.swing.JButton();
+        btnProductos = new javax.swing.JButton();
+        btnVentas = new javax.swing.JButton();
+        btnReportes = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         lblBotonesBackround = new javax.swing.JLabel();
         pnlContenedor = new javax.swing.JPanel();
@@ -88,14 +88,24 @@ public class Principal extends javax.swing.JFrame {
         jPanel4.add(jLabel1);
         jLabel1.setBounds(100, 10, 140, 30);
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/x-mark-4-48.png"))); // NOI18N
-        jButton2.setText("SALIR");
-        jButton2.setIconTextGap(20);
-        jButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/x-mark-4-55.png"))); // NOI18N
-        jPanel4.add(jButton2);
-        jButton2.setBounds(0, 450, 250, 80);
+        btnSalir.setBackground(new java.awt.Color(255, 255, 255));
+        btnSalir.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/x-mark-4-48.png"))); // NOI18N
+        btnSalir.setText("SALIR");
+        btnSalir.setIconTextGap(20);
+        btnSalir.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/x-mark-4-55.png"))); // NOI18N
+        btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSalirMouseExited(evt);
+            }
+        });
+        jPanel4.add(btnSalir);
+        btnSalir.setBounds(0, 450, 250, 80);
 
+        btnClientes.setBackground(new java.awt.Color(255, 255, 255));
         btnClientes.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/clients-48.png"))); // NOI18N
         btnClientes.setText("CLIENTES");
@@ -104,6 +114,9 @@ public class Principal extends javax.swing.JFrame {
         btnClientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnClientesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnClientesMouseExited(evt);
             }
         });
         btnClientes.addActionListener(new java.awt.event.ActionListener() {
@@ -114,37 +127,73 @@ public class Principal extends javax.swing.JFrame {
         jPanel4.add(btnClientes);
         btnClientes.setBounds(0, 50, 250, 80);
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/truck-2-48.png"))); // NOI18N
-        jButton4.setText("PROVEEDORES");
-        jButton4.setIconTextGap(20);
-        jButton4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/truck-2-55.png"))); // NOI18N
-        jPanel4.add(jButton4);
-        jButton4.setBounds(0, 130, 250, 80);
+        btnProveedor.setBackground(new java.awt.Color(255, 255, 255));
+        btnProveedor.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btnProveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/truck-2-48.png"))); // NOI18N
+        btnProveedor.setText("PROVEEDORES");
+        btnProveedor.setIconTextGap(20);
+        btnProveedor.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/truck-2-55.png"))); // NOI18N
+        btnProveedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnProveedorMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnProveedorMouseExited(evt);
+            }
+        });
+        jPanel4.add(btnProveedor);
+        btnProveedor.setBounds(0, 130, 250, 80);
 
-        jButton5.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/bunch-ingredients-48.png"))); // NOI18N
-        jButton5.setText("PRODUCTOS");
-        jButton5.setIconTextGap(20);
-        jButton5.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/bunch-ingredients-55.png"))); // NOI18N
-        jPanel4.add(jButton5);
-        jButton5.setBounds(0, 210, 250, 80);
+        btnProductos.setBackground(new java.awt.Color(255, 255, 255));
+        btnProductos.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btnProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/bunch-ingredients-48.png"))); // NOI18N
+        btnProductos.setText("PRODUCTOS");
+        btnProductos.setIconTextGap(20);
+        btnProductos.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/bunch-ingredients-55.png"))); // NOI18N
+        btnProductos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnProductosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnProductosMouseExited(evt);
+            }
+        });
+        jPanel4.add(btnProductos);
+        btnProductos.setBounds(0, 210, 250, 80);
 
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/text-file-3-48.png"))); // NOI18N
-        jButton6.setText("VENTAS");
-        jButton6.setIconTextGap(20);
-        jButton6.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/text-file-3-55.png"))); // NOI18N
-        jPanel4.add(jButton6);
-        jButton6.setBounds(0, 290, 250, 80);
+        btnVentas.setBackground(new java.awt.Color(255, 255, 255));
+        btnVentas.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btnVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/text-file-3-48.png"))); // NOI18N
+        btnVentas.setText("VENTAS");
+        btnVentas.setIconTextGap(20);
+        btnVentas.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/text-file-3-55.png"))); // NOI18N
+        btnVentas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnVentasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnVentasMouseExited(evt);
+            }
+        });
+        jPanel4.add(btnVentas);
+        btnVentas.setBounds(0, 290, 250, 80);
 
-        jButton7.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/combo-48.png"))); // NOI18N
-        jButton7.setText("REPORTES");
-        jButton7.setIconTextGap(20);
-        jButton7.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/combo-55.png"))); // NOI18N
-        jPanel4.add(jButton7);
-        jButton7.setBounds(0, 370, 250, 80);
+        btnReportes.setBackground(new java.awt.Color(255, 255, 255));
+        btnReportes.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btnReportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/combo-48.png"))); // NOI18N
+        btnReportes.setText("REPORTES");
+        btnReportes.setIconTextGap(20);
+        btnReportes.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/combo-55.png"))); // NOI18N
+        btnReportes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnReportesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnReportesMouseExited(evt);
+            }
+        });
+        jPanel4.add(btnReportes);
+        btnReportes.setBounds(0, 370, 250, 80);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -186,9 +235,64 @@ public class Principal extends javax.swing.JFrame {
 
     private void btnClientesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClientesMouseEntered
         // TODO add your handling code here:
-        btnClientes.setBackground(Color.red);
+       btnClientes.setBackground(Color.decode("#756766"));
         
     }//GEN-LAST:event_btnClientesMouseEntered
+
+    private void btnClientesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClientesMouseExited
+        // TODO add your handling code here:
+        btnClientes.setBackground(Color.WHITE);
+    }//GEN-LAST:event_btnClientesMouseExited
+
+    private void btnProveedorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProveedorMouseEntered
+        // TODO add your handling code here:
+        btnProveedor.setBackground(Color.decode("#756766"));
+    }//GEN-LAST:event_btnProveedorMouseEntered
+
+    private void btnProductosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProductosMouseEntered
+        // TODO add your handling code here:
+        btnProductos.setBackground(Color.decode("#756766"));
+    }//GEN-LAST:event_btnProductosMouseEntered
+
+    private void btnVentasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentasMouseEntered
+        // TODO add your handling code here:
+        btnVentas.setBackground(Color.decode("#756766"));
+    }//GEN-LAST:event_btnVentasMouseEntered
+
+    private void btnReportesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReportesMouseEntered
+        // TODO add your handling code here:
+        btnReportes.setBackground(Color.decode("#756766"));
+    }//GEN-LAST:event_btnReportesMouseEntered
+
+    private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered
+        // TODO add your handling code here:
+        btnSalir.setBackground(Color.decode("#756766"));
+    }//GEN-LAST:event_btnSalirMouseEntered
+
+    private void btnProveedorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProveedorMouseExited
+        // TODO add your handling code here:
+        btnProveedor.setBackground(Color.WHITE);
+    }//GEN-LAST:event_btnProveedorMouseExited
+
+    private void btnProductosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProductosMouseExited
+        // TODO add your handling code here:
+        btnProductos.setBackground(Color.WHITE);
+    }//GEN-LAST:event_btnProductosMouseExited
+
+    private void btnVentasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentasMouseExited
+        // TODO add your handling code here:
+        btnVentas.setBackground(Color.WHITE);
+    }//GEN-LAST:event_btnVentasMouseExited
+
+    private void btnReportesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReportesMouseExited
+        // TODO add your handling code here:
+        btnReportes.setBackground(Color.WHITE);
+    }//GEN-LAST:event_btnReportesMouseExited
+
+    private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
+        // TODO add your handling code here:
+        btnSalir.setBackground(Color.WHITE);
+    }//GEN-LAST:event_btnSalirMouseExited
 
     /**
      * @param args the command line arguments
@@ -226,18 +330,18 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnClientes;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
+    public javax.swing.JButton btnClientes;
+    public javax.swing.JButton btnProductos;
+    public javax.swing.JButton btnProveedor;
+    public javax.swing.JButton btnReportes;
+    public javax.swing.JButton btnSalir;
+    public javax.swing.JButton btnVentas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jpBotones;
     private javax.swing.JLabel lblBotonesBackround;
-    private javax.swing.JPanel pnlContenedor;
+    public javax.swing.JPanel pnlContenedor;
     // End of variables declaration//GEN-END:variables
 }

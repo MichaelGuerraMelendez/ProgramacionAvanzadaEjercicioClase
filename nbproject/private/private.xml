@@ -5,10 +5,11 @@
         <group>
             <file>file:/C:/Users/MICHAEL%20GUERRA/Documents/NetBeansProjects/AbarrotesRios_MAGM/src/abarrotesrios_magm/modelo/Conexion.java</file>
             <file>file:/C:/Users/MICHAEL%20GUERRA/Documents/NetBeansProjects/AbarrotesRios_MAGM/src/abarrotesrios_magm/vista/Principal.java</file>
-            <file>file:/C:/Users/MICHAEL%20GUERRA/Documents/NetBeansProjects/AbarrotesRios_MAGM/src/abarrotesrios_magm/modelo/ConsultasBD.java</file>
             <file>file:/C:/Users/MICHAEL%20GUERRA/Documents/NetBeansProjects/AbarrotesRios_MAGM/src/abarrotesrios_magm/vista/ClientesPanel.java</file>
+            <file>file:/C:/Users/MICHAEL%20GUERRA/Documents/NetBeansProjects/AbarrotesRios_MAGM/src/abarrotesrios_magm/vista/ProveedorPanel.java</file>
             <file>file:/C:/Users/MICHAEL%20GUERRA/Documents/NetBeansProjects/AbarrotesRios_MAGM/src/abarrotesrios_magm/controlador/ClienteControlador.java</file>
             <file>file:/C:/Users/MICHAEL%20GUERRA/Documents/NetBeansProjects/AbarrotesRios_MAGM/src/abarrotesrios_magm/modelo/ClientesPOO.java</file>
+            <file>file:/C:/Users/MICHAEL%20GUERRA/Documents/NetBeansProjects/AbarrotesRios_MAGM/src/abarrotesrios_magm/vista/InventarioPanel.java</file>
             <file>file:/C:/Users/MICHAEL%20GUERRA/Documents/NetBeansProjects/AbarrotesRios_MAGM/src/abarrotesrios_magm/vista/Portada.java</file>
         </group>
     </open-files>
