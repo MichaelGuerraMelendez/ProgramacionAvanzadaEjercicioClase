@@ -14,7 +14,7 @@ import javax.swing.JLabel;
  *
  * @author MICHAEL GUERRA
  */
-public class ProveedorPanel extends javax.swing.JPanel {
+public class PrductosPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ClientesPanel
@@ -22,7 +22,7 @@ public class ProveedorPanel extends javax.swing.JPanel {
     
     ImageIcon imagen;
     Icon icono;
-    public ProveedorPanel() {
+    public PrductosPanel() {
         initComponents();
         cambioImagen("logoAbarrotes.png", lblLogo);
         
@@ -276,7 +276,7 @@ public class ProveedorPanel extends javax.swing.JPanel {
         lblTitulo.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(255, 51, 51));
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo.setText("PROVEEDOR");
+        lblTitulo.setText("PRODUCTOS");
         jPanel3.add(lblTitulo);
         lblTitulo.setBounds(200, 50, 590, 80);
 

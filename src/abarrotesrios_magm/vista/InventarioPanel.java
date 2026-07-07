@@ -51,22 +51,22 @@ public class InventarioPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tblDatos1 = new javax.swing.JTable();
+        tblDatosInventario = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblDatos = new javax.swing.JTable();
+        tblDatosProductos = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jtfCodigo = new javax.swing.JTextField();
-        jtfDireccion = new javax.swing.JTextField();
+        jtfCantidadMaxima = new javax.swing.JTextField();
         botBuscarCodigo = new javax.swing.JButton();
         botBuscarNombre = new javax.swing.JButton();
-        jtfCodigo1 = new javax.swing.JTextField();
+        jtfCantidad = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jtfDireccion1 = new javax.swing.JTextField();
+        jtfCantidadMinima = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         botCrear = new javax.swing.JButton();
         botLeer = new javax.swing.JButton();
@@ -74,7 +74,7 @@ public class InventarioPanel extends javax.swing.JPanel {
         botEliminar = new javax.swing.JButton();
         botLimpiar = new javax.swing.JButton();
         botSalir = new javax.swing.JButton();
-        jtfCodigo2 = new javax.swing.JTextField();
+        jtfDescripcion = new javax.swing.JTextField();
         lblLogo = new javax.swing.JLabel();
         lblTitulo = new javax.swing.JLabel();
         lblBackground = new javax.swing.JLabel();
@@ -95,7 +95,7 @@ public class InventarioPanel extends javax.swing.JPanel {
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 0), 3), "INVENTARIO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14), new java.awt.Color(255, 0, 0))); // NOI18N
 
-        tblDatos1.setModel(new javax.swing.table.DefaultTableModel(
+        tblDatosInventario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -103,7 +103,7 @@ public class InventarioPanel extends javax.swing.JPanel {
                 "CODIGO", "DESCRIPCION", "CANTIDAD"
             }
         ));
-        jScrollPane2.setViewportView(tblDatos1);
+        jScrollPane2.setViewportView(tblDatosInventario);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -122,7 +122,7 @@ public class InventarioPanel extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 0), 3), "PRODUCTOS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14), new java.awt.Color(255, 0, 0))); // NOI18N
 
-        tblDatos.setModel(new javax.swing.table.DefaultTableModel(
+        tblDatosProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -130,7 +130,7 @@ public class InventarioPanel extends javax.swing.JPanel {
                 "CODIGO", "DESCIPCION", "PROVEEDOR", "STOCK MIN", "STOCK MAX"
             }
         ));
-        jScrollPane1.setViewportView(tblDatos);
+        jScrollPane1.setViewportView(tblDatosProductos);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -174,9 +174,9 @@ public class InventarioPanel extends javax.swing.JPanel {
         jPanel1.add(jtfCodigo);
         jtfCodigo.setBounds(90, 30, 80, 23);
 
-        jtfDireccion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPanel1.add(jtfDireccion);
-        jtfDireccion.setBounds(680, 80, 90, 23);
+        jtfCantidadMaxima.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel1.add(jtfCantidadMaxima);
+        jtfCantidadMaxima.setBounds(680, 80, 90, 23);
 
         botBuscarCodigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/search-9-16.png"))); // NOI18N
         jPanel1.add(botBuscarCodigo);
@@ -186,9 +186,9 @@ public class InventarioPanel extends javax.swing.JPanel {
         jPanel1.add(botBuscarNombre);
         botBuscarNombre.setBounds(490, 30, 46, 23);
 
-        jtfCodigo1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPanel1.add(jtfCodigo1);
-        jtfCodigo1.setBounds(640, 30, 128, 23);
+        jtfCantidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel1.add(jtfCantidad);
+        jtfCantidad.setBounds(640, 30, 128, 23);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("CANTIDAD");
@@ -200,9 +200,9 @@ public class InventarioPanel extends javax.swing.JPanel {
         jPanel1.add(jLabel9);
         jLabel9.setBounds(360, 80, 100, 17);
 
-        jtfDireccion1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPanel1.add(jtfDireccion1);
-        jtfDireccion1.setBounds(460, 80, 90, 23);
+        jtfCantidadMinima.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel1.add(jtfCantidadMinima);
+        jtfCantidadMinima.setBounds(460, 80, 90, 23);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -274,9 +274,9 @@ public class InventarioPanel extends javax.swing.JPanel {
         jPanel1.add(jPanel4);
         jPanel4.setBounds(20, 120, 750, 37);
 
-        jtfCodigo2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPanel1.add(jtfCodigo2);
-        jtfCodigo2.setBounds(350, 30, 128, 23);
+        jtfDescripcion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel1.add(jtfDescripcion);
+        jtfDescripcion.setBounds(350, 30, 128, 23);
 
         jPanel3.add(jPanel1);
         jPanel1.setBounds(10, 160, 780, 170);
@@ -340,15 +340,15 @@ public class InventarioPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    public javax.swing.JTextField jtfCantidad;
+    public javax.swing.JTextField jtfCantidadMaxima;
+    public javax.swing.JTextField jtfCantidadMinima;
     public javax.swing.JTextField jtfCodigo;
-    public javax.swing.JTextField jtfCodigo1;
-    public javax.swing.JTextField jtfCodigo2;
-    public javax.swing.JTextField jtfDireccion;
-    public javax.swing.JTextField jtfDireccion1;
+    public javax.swing.JTextField jtfDescripcion;
     private javax.swing.JLabel lblBackground;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblTitulo;
-    public javax.swing.JTable tblDatos;
-    public javax.swing.JTable tblDatos1;
+    public javax.swing.JTable tblDatosInventario;
+    public javax.swing.JTable tblDatosProductos;
     // End of variables declaration//GEN-END:variables
 }
