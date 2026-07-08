@@ -30,7 +30,7 @@ public class ConsultasBD extends Conexion{
             ps.setString(2, clie.getNombre());
             ps.setString(3, clie.getDireccion());
             ps.setString(4, clie.getTelefono());
-            ps.setString(4, clie.getEstado());
+            ps.setString(5, clie.getEstado());
             ps.execute();
             JOptionPane.showMessageDialog(null, "DATOS INGRESADOS CORRECTAMENTE - CONS");
             return true;

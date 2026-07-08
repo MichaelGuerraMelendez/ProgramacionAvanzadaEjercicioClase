@@ -33,6 +33,7 @@ public class PrincipalControlador implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==formPrincipal.btnClientes){
+            formPrincipal.pnlContenedor.removeAll();
             formCliente.setBounds(0, 0, formPrincipal.pnlContenedor.getWidth(), formPrincipal.pnlContenedor.getHeight());
             formPrincipal.pnlContenedor.add(formCliente);
             formPrincipal.pnlContenedor.revalidate();

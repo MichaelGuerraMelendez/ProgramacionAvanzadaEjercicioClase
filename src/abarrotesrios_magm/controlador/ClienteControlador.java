@@ -25,25 +25,26 @@ public class ClienteControlador implements ActionListener{
         this.cli = cli;
         this.form = form;
         this.conBD = conBD;
+
         this.form.botCrear.addActionListener(this);
-        if (conBD.crearCliente(cli)) {
-            JOptionPane.showMessageDialog(null, "CLIENTE CREACO CORRECTAMENTE - CONTROLADOR");
-        } else {
-            JOptionPane.showMessageDialog(null, "NO SE PUDO CREAR CLEINTE - CONTROLADOR");
-        }
+
     }
-    
-    
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        //Boton crear 
-        if(e.getSource()==form.botCrear){
+        
+        if (e.getSource() == form.botCrear) {
             cli.setCodigo(Integer.parseInt(form.jtfCodigo.getText()));
             cli.setNombre(form.jtfNombre.getText());
             cli.setDireccion(form.jtfDireccion.getText());
             cli.setTelefono(form.jtfTelefono.getText());
             cli.setEstado("ACTIVO");
+
+            if (conBD.crearCliente(cli)) {
+                JOptionPane.showMessageDialog(null, "CLIENTE CREADO CORRECTAMENTE - CONTROLADOR");
+            } else {
+                JOptionPane.showMessageDialog(null, "NO SE PUDO CREAR CLIENTE - CONTROLADOR");
+            }
         }
     }
     

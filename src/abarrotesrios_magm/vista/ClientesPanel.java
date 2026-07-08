@@ -137,6 +137,11 @@ public class ClientesPanel extends javax.swing.JPanel {
         jLabel6.setText("TELEFONO");
 
         jtfCodigo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jtfCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfCodigoActionPerformed(evt);
+            }
+        });
 
         jtfNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -334,6 +339,10 @@ public class ClientesPanel extends javax.swing.JPanel {
             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jtfCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfCodigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfCodigoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

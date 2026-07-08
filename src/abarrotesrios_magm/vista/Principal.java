@@ -14,11 +14,15 @@ public class Principal extends javax.swing.JFrame {
     ImageIcon imagen;
     Icon icono;
     Portada portada = new Portada();
+    String usuario;
     
     
     
-    public Principal() {
+    public Principal(String user) {
         initComponents();
+        this.usuario = user;
+        jlbUsuario.setText(usuario);
+        
 
         this.setSize(1169, 780);
         this.setLocationRelativeTo(null);
@@ -59,7 +63,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jpBotones = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jlbUsuario = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
         btnClientes = new javax.swing.JButton();
         btnProveedor = new javax.swing.JButton();
@@ -82,11 +86,11 @@ public class Principal extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(255, 0, 0));
         jPanel4.setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("USUARIO:");
-        jPanel4.add(jLabel1);
-        jLabel1.setBounds(100, 10, 140, 30);
+        jlbUsuario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jlbUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        jlbUsuario.setText("USUARIO:");
+        jPanel4.add(jlbUsuario);
+        jlbUsuario.setBounds(100, 10, 140, 30);
 
         btnSalir.setBackground(new java.awt.Color(255, 255, 255));
         btnSalir.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -229,8 +233,7 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
-        ClientesPanel clientes = new ClientesPanel();
-        panel(clientes);
+      
     }//GEN-LAST:event_btnClientesActionPerformed
 
     private void btnClientesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClientesMouseEntered
@@ -324,7 +327,7 @@ public class Principal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Principal().setVisible(true);
+                new Principal("MAGM").setVisible(true);
             }
         });
     }
@@ -336,10 +339,10 @@ public class Principal extends javax.swing.JFrame {
     public javax.swing.JButton btnReportes;
     public javax.swing.JButton btnSalir;
     public javax.swing.JButton btnVentas;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel jlbUsuario;
     private javax.swing.JPanel jpBotones;
     private javax.swing.JLabel lblBotonesBackround;
     public javax.swing.JPanel pnlContenedor;
