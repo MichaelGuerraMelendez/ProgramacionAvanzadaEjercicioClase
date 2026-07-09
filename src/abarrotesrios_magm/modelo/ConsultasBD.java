@@ -4,13 +4,16 @@
  * and open the template in the editor.
  */
 package abarrotesrios_magm.modelo;
+import abarrotesrios_magm.vista.ClientesPanel;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import java.sql.ResultSet;
 
 /**
  *
@@ -18,8 +21,10 @@ import javax.swing.JOptionPane;
  */
 public class ConsultasBD extends Conexion{
     PreparedStatement ps =null;
+    ResultSet rs = null;
     String sentenciaSQL;
     Connection con = null;
+    ClientesPOO cli;
     
     public boolean crearCliente(ClientesPOO clie){
         con = getConexion();
@@ -49,5 +54,27 @@ public class ConsultasBD extends Conexion{
         }
     }
     
-    
+    //LEER CLIENTES
+    public ArrayList<ClientesPOO> leerTodos() {
+        ArrayList clientes = new ArrayList();
+        con = getConexion();
+        sentenciaSQL = "SELECT * FROM clientes";
+        try {
+            ps = con.prepareStatement(sentenciaSQL);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                cli = new ClientesPOO();
+                cli.setCodigo(rs.getInt(1));
+                cli.setNombre(rs.getString(2));
+                cli.setDireccion(rs.getString(3));
+                cli.setTelefono(rs.getString(4));
+                clientes.add(cli);
+            }
+        con.close();
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, "No se pudo leer los datos" + ex.getMessage());
+        }
+        return clientes;
+    }
+
 }

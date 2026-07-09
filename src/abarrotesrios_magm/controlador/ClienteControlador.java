@@ -11,6 +11,7 @@ import abarrotesrios_magm.vista.ClientesPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,6 +21,9 @@ public class ClienteControlador implements ActionListener{
     private ClientesPOO cli;
     private ClientesPanel form;
     private ConsultasBD conBD;
+    private Object datos[] = new Object[4];
+    DefaultTableModel modelo;
+    
 
     public ClienteControlador(ClientesPOO cli, ClientesPanel form, ConsultasBD conBD) {
         this.cli = cli;
@@ -27,7 +31,21 @@ public class ClienteControlador implements ActionListener{
         this.conBD = conBD;
 
         this.form.botCrear.addActionListener(this);
+        this.form.botLeer.addActionListener(this);
 
+    }
+    
+    public void llenarTaba(){
+        modelo = (DefaultTableModel)form.tblDatos.getModel();
+        int registros = conBD.leerTodos().size();
+        for (int i = 0; i< registros; i++){
+            datos[0]=conBD.leerTodos().get(i).getCodigo();
+            datos[1]=conBD.leerTodos().get(i).getNombre();
+            datos[2]=conBD.leerTodos().get(i).getDireccion();
+            datos[3]=conBD.leerTodos().get(i).getTelefono();
+            modelo.addRow(datos);
+            form.tblDatos.setModel(modelo);
+        }
     }
 
     @Override
@@ -45,6 +63,10 @@ public class ClienteControlador implements ActionListener{
             } else {
                 JOptionPane.showMessageDialog(null, "NO SE PUDO CREAR CLIENTE - CONTROLADOR");
             }
+        }
+        
+        if(e.getSource()==form.botLeer){
+            llenarTaba();
         }
     }
     
