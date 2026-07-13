@@ -26,12 +26,13 @@ public class ProveedoresPanel extends javax.swing.JPanel {
         initComponents();
         cambioImagen("logoAbarrotes.png", lblLogo);
         
-        jlbFoto.addComponentListener(new java.awt.event.ComponentAdapter() {
-        @Override
-        public void componentResized(java.awt.event.ComponentEvent e) {
-            cambioImagen("sinPerfil.jpg", jlbFoto);
-        }
-    });
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                cambioImagen("logoAbarrotes.png", lblLogo);
+                cambioImagen("sinPerfil.jpg", jlbFoto);
+            }
+        });
     }
     
         

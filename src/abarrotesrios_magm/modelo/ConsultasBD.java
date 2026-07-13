@@ -76,5 +76,46 @@ public class ConsultasBD extends Conexion{
         }
         return clientes;
     }
+    
+    
+    //LEER CLIENTE POR CODIGO
+        public boolean leerCliente(ClientesPOO clie) {
+        con = getConexion();
+        sentenciaSQL = "SELECT * FROM clientes WHERE codigo = ?";
+
+        try {
+            ps = con.prepareStatement(sentenciaSQL);
+            ps.setInt(1, clie.getCodigo());
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                clie.setCodigo(rs.getInt(1));
+                clie.setNombre(rs.getString(2));
+                clie.setDireccion(rs.getString(3));
+                clie.setTelefono(rs.getString(4));
+                return true;
+            }
+
+            return false;
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "NO SE PUDO LEER CLIENTE - CONS: " + ex.getMessage());
+            return false;
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+    }
 
 }

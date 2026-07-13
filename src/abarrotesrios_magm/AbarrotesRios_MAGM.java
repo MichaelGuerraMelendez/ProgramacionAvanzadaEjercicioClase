@@ -10,6 +10,9 @@ import abarrotesrios_magm.modelo.ClientesPOO;
 import abarrotesrios_magm.modelo.ConsultasBD;
 import abarrotesrios_magm.vista.ClientesPanel;
 import abarrotesrios_magm.vista.Principal;
+import abarrotesrios_magm.vista.ProveedoresPanel;
+import abarrotesrios_magm.vista.ProductosPanel;
+    
 /**
  *
  * @author MICHAEL GUERRA
@@ -21,10 +24,21 @@ public class AbarrotesRios_MAGM {
      */
     public static void main(String[] args) {
         Principal pri = new Principal("Michael GM");
+        
+        //Clientes
         ClientesPanel cli = new ClientesPanel();
         ClientesPOO cliPOO = new ClientesPOO();
         ConsultasBD conBD = new ConsultasBD();
-        PrincipalControlador conPrin = new PrincipalControlador(pri, cli);
+        
+        //Proveedor
+        ProveedoresPanel prov = new ProveedoresPanel();
+        
+        //Productos
+        ProductosPanel produc = new ProductosPanel();
+        
+        //Ventana Principal
+        PrincipalControlador conPrin = new PrincipalControlador(pri, cli, prov, produc);
+        
         ClienteControlador conCli = new ClienteControlador(cliPOO, cli, conBD);
         conPrin.iniciar();
         pri.setVisible(true);

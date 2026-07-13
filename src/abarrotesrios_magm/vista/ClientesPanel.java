@@ -24,14 +24,15 @@ public class ClientesPanel extends javax.swing.JPanel {
     Icon icono;
     public ClientesPanel() {
         initComponents();
-        cambioImagen("logoAbarrotes.png", lblLogo);
         
-        jlbFoto.addComponentListener(new java.awt.event.ComponentAdapter() {
-        @Override
-        public void componentResized(java.awt.event.ComponentEvent e) {
-            cambioImagen("sinPerfil.jpg", jlbFoto);
-        }
-    });
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                cambioImagen("logoAbarrotes.png", lblLogo);
+                cambioImagen("sinPerfil.jpg", jlbFoto);
+            }
+        });
+        
     }
     
         
@@ -39,7 +40,6 @@ public class ClientesPanel extends javax.swing.JPanel {
         imagen = new ImageIcon("src/imgs/" + nombreImagen);
         Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(etiqueta.getWidth(), etiqueta.getHeight(), Image.SCALE_DEFAULT));
         etiqueta.setIcon(icono);
-
     }
 
     /**
@@ -366,7 +366,7 @@ public class ClientesPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel jlbFoto;
+    public javax.swing.JLabel jlbFoto;
     public javax.swing.JTextField jtfCodigo;
     public javax.swing.JTextField jtfDireccion;
     public javax.swing.JTextField jtfNombre;

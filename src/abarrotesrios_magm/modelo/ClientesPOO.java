@@ -7,7 +7,7 @@ package abarrotesrios_magm.modelo;
 
 /**
  *
- * @author MICHAEL GUERRA
+ * @auth    or MICHAEL GUERRA
  */
 public class ClientesPOO {
     private int codigo;

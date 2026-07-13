@@ -14,7 +14,7 @@ import javax.swing.JLabel;
  *
  * @author MICHAEL GUERRA
  */
-public class PrductosPanel extends javax.swing.JPanel {
+public class ProductosPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ClientesPanel
@@ -22,11 +22,11 @@ public class PrductosPanel extends javax.swing.JPanel {
     
     ImageIcon imagen;
     Icon icono;
-    public PrductosPanel() {
+    public ProductosPanel() {
         initComponents();
         cambioImagen("logoAbarrotes.png", lblLogo);
         
-        
+//        
     }
     
         

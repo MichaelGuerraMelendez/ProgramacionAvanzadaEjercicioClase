@@ -7,6 +7,8 @@ package abarrotesrios_magm.controlador;
 
 import abarrotesrios_magm.vista.ClientesPanel;
 import abarrotesrios_magm.vista.Principal;
+import abarrotesrios_magm.vista.ProveedoresPanel;
+import abarrotesrios_magm.vista.ProductosPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -17,11 +19,20 @@ import java.awt.event.ActionListener;
 public class PrincipalControlador implements ActionListener{
     private Principal formPrincipal;
     private ClientesPanel formCliente;
+    private ProveedoresPanel formProveedor;
+    private ProductosPanel formProducto;
 
-    public PrincipalControlador(Principal formPrincipal, ClientesPanel formCliente) {
+
+    public PrincipalControlador(Principal formPrincipal, ClientesPanel formCliente, ProveedoresPanel frmProveedor, ProductosPanel frmProducto) {
         this.formPrincipal = formPrincipal;
         this.formCliente = formCliente;
+        this.formProveedor = frmProveedor;
+        this.formProducto = frmProducto;
+        
         this.formPrincipal.btnClientes.addActionListener(this);
+        this.formPrincipal.btnProveedor.addActionListener(this);
+        this.formPrincipal.btnProductos.addActionListener(this);
+        
     }
     
     public void iniciar(){
@@ -39,6 +50,23 @@ public class PrincipalControlador implements ActionListener{
             formPrincipal.pnlContenedor.revalidate();
             formPrincipal.pnlContenedor.repaint();
         }
+        
+        if(e.getSource()==formPrincipal.btnProveedor){
+            formPrincipal.pnlContenedor.removeAll();
+            formProveedor.setBounds(0, 0, formPrincipal.pnlContenedor.getWidth(), formPrincipal.pnlContenedor.getHeight());
+            formPrincipal.pnlContenedor.add(formProveedor);
+            formPrincipal.pnlContenedor.revalidate();
+            formPrincipal.pnlContenedor.repaint();
+        }
+        
+        if(e.getSource()==formPrincipal.btnProductos){
+            formPrincipal.pnlContenedor.removeAll();
+            formProducto.setBounds(0, 0, formPrincipal.pnlContenedor.getWidth(), formPrincipal.pnlContenedor.getHeight());
+            formPrincipal.pnlContenedor.add(formProducto);
+            formPrincipal.pnlContenedor.revalidate();
+            formPrincipal.pnlContenedor.repaint();
+        }
+        
     }
     
 }

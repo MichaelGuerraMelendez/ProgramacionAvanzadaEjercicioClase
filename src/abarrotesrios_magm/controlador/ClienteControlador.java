@@ -10,6 +10,7 @@ import abarrotesrios_magm.modelo.ConsultasBD;
 import abarrotesrios_magm.vista.ClientesPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -23,15 +24,20 @@ public class ClienteControlador implements ActionListener{
     private ConsultasBD conBD;
     private Object datos[] = new Object[4];
     DefaultTableModel modelo;
+    private ImageIcon icono;
     
 
     public ClienteControlador(ClientesPOO cli, ClientesPanel form, ConsultasBD conBD) {
         this.cli = cli;
         this.form = form;
         this.conBD = conBD;
+        
+        this.icono = new ImageIcon("src/imgs/sinPerfil.jpg");
 
         this.form.botCrear.addActionListener(this);
         this.form.botLeer.addActionListener(this);
+        this.form.botBuscarCodigo.addActionListener(this);
+        this.form.botLimpiar.addActionListener(this);
 
     }
     
@@ -46,6 +52,20 @@ public class ClienteControlador implements ActionListener{
             modelo.addRow(datos);
             form.tblDatos.setModel(modelo);
         }
+    }
+    
+    public void limpiar(){
+        form.jtfCodigo.setText("0");
+        form.jtfNombre.setText(null);
+        form.jtfDireccion.setText(null);
+        form.jtfTelefono.setText(null);
+        form.jtfNombre.requestFocus();
+        form.jlbFoto.setIcon(icono);
+        int fila = form.tblDatos.getRowCount();
+        for(int i = fila-1 ; i>0 ; i--){
+            modelo.removeRow(i);
+        }
+        
     }
 
     @Override
@@ -68,6 +88,24 @@ public class ClienteControlador implements ActionListener{
         if(e.getSource()==form.botLeer){
             llenarTaba();
         }
+        
+        //Boton buscar por codigo
+        if (e.getSource() == form.botBuscarCodigo) {
+            cli.setCodigo(Integer.parseInt(form.jtfCodigo.getText()));
+            if (conBD.leerCliente(cli)) {
+                   form.jtfNombre.setText(cli.getNombre());
+                   form.jtfDireccion.setText(cli.getDireccion());
+                   form.jtfTelefono.setText(cli.getTelefono());
+            } else {
+                JOptionPane.showMessageDialog(null, "NO SE PUDO LEER CLIENTE - CONTROL");
+            }
     }
+        //Boton Limpiar
+        if(e.getSource()==form.botLimpiar){
+            limpiar();
+        }
+    
+    
+   }
     
 }
