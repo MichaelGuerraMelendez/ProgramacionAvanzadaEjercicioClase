@@ -117,5 +117,62 @@ public class ConsultasBD extends Conexion{
             }
         }
     }
+      
+    public boolean modificarClientes(ClientesPOO clie){
+        con = getConexion();
+        sentenciaSQL = "UPDATE clientes SET nombre =? , direccion =? , telefono =? WHERE codigo =? ";
+        try {
+            ps = con.prepareStatement(sentenciaSQL);
+            
+            ps.setString(1, clie.getNombre());
+            ps.setString(2, clie.getDireccion());
+            ps.setString(3, clie.getTelefono());
+            ps.setInt(4, clie.getCodigo());
+
+            ps.execute();
+            JOptionPane.showMessageDialog(null, "DATOS ACTUALIZADOS CORRECTAMENTE - CONS");
+            return true;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "NO SE PUDO MODIFICAR EL CLIENTE - CONS"+ ex.getMessage());
+            return false;
+        } finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
+                System.err.println(ex.getMessage());
+            }
+        }
+    }
+    
+    //EliminarCliente
+    public boolean eliminarClientes(ClientesPOO clie){
+        con = getConexion();
+        sentenciaSQL = "DELETE FROM clientes WHERE codigo =? ";
+        try {
+            ps = con.prepareStatement(sentenciaSQL);
+            
+            ps.setInt(1, clie.getCodigo());
+
+            ps.execute();
+            JOptionPane.showMessageDialog(null, "DATOS ELIMINADOS CORRECTAMENTE - CONS");
+            return true;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "NO SE PUDO ELIMINAR EL CLIENTE - CONS"+ ex.getMessage());
+            return false;
+        } finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
+                System.err.println(ex.getMessage());
+            }
+        }
+    }
+    
 
 }

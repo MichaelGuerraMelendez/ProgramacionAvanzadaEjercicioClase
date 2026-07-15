@@ -38,6 +38,8 @@ public class ClienteControlador implements ActionListener{
         this.form.botLeer.addActionListener(this);
         this.form.botBuscarCodigo.addActionListener(this);
         this.form.botLimpiar.addActionListener(this);
+        this.form.botMdificar.addActionListener(this);
+        this.form.botEliminar.addActionListener(this);
 
     }
     
@@ -100,12 +102,32 @@ public class ClienteControlador implements ActionListener{
                 JOptionPane.showMessageDialog(null, "NO SE PUDO LEER CLIENTE - CONTROL");
             }
     }
-        //Boton Limpiar
-        if(e.getSource()==form.botLimpiar){
-            limpiar();
+        //BotonModificar
+              
+        if (e.getSource() == form.botMdificar) {
+            cli.setCodigo(Integer.parseInt(form.jtfCodigo.getText()));
+            cli.setNombre(form.jtfNombre.getText());
+            cli.setDireccion(form.jtfDireccion.getText());
+            cli.setTelefono(form.jtfTelefono.getText());
+
+            if (conBD.modificarClientes(cli)) {
+                JOptionPane.showMessageDialog(null, "CLIENTE MODIFICADO CORRECTAMENTE - CONTROLADOR");
+                limpiar();
+                llenarTaba();
+            } else {
+                JOptionPane.showMessageDialog(null, "NO SE PUDO MODIFICAR CLIENTE - CONTROLADOR");
+            }
         }
-    
-    
-   }
-    
+        
+        //BotEliminar
+        if (e.getSource() == form.botEliminar) {
+            cli.setCodigo(Integer.parselnt(form.jtfCodigo.getText()));
+            if (conBD.eliminarClientes(cli)) {
+                JOptionPane.showMessageDialog(null, "CLIENTE ELIMINADO CORRECTAMENTE - CONTRL");
+                limpiar();
+            } else {
+                JOptionPane.showMessageDialog(null, "NO SE PUDO EL| CLIENTE - CONTRL");
+            }
+        }
+    }   
 }
