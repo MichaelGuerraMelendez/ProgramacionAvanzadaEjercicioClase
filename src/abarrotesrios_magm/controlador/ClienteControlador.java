@@ -40,6 +40,7 @@ public class ClienteControlador implements ActionListener{
         this.form.botLimpiar.addActionListener(this);
         this.form.botMdificar.addActionListener(this);
         this.form.botEliminar.addActionListener(this);
+        this.form.botLimpiar.addActionListener(this);
 
     }
     
@@ -121,13 +122,17 @@ public class ClienteControlador implements ActionListener{
         
         //BotEliminar
         if (e.getSource() == form.botEliminar) {
-            cli.setCodigo(Integer.parselnt(form.jtfCodigo.getText()));
+            cli.setCodigo(Integer.parseInt(form.jtfCodigo.getText()));
             if (conBD.eliminarClientes(cli)) {
                 JOptionPane.showMessageDialog(null, "CLIENTE ELIMINADO CORRECTAMENTE - CONTRL");
                 limpiar();
             } else {
                 JOptionPane.showMessageDialog(null, "NO SE PUDO EL| CLIENTE - CONTRL");
             }
+        }
+        
+        if (e.getSource() == form.botLimpiar) {
+            limpiar();
         }
     }   
 }

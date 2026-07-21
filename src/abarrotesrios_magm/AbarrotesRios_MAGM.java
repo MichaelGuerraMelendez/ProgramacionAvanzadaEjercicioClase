@@ -6,8 +6,10 @@
 package abarrotesrios_magm;
 import abarrotesrios_magm.controlador.ClienteControlador;
 import abarrotesrios_magm.controlador.PrincipalControlador;
+import abarrotesrios_magm.controlador.ProveedorControlador;
 import abarrotesrios_magm.modelo.ClientesPOO;
 import abarrotesrios_magm.modelo.ConsultasBD;
+import abarrotesrios_magm.modelo.ProveedorPOO;
 import abarrotesrios_magm.vista.ClientesPanel;
 import abarrotesrios_magm.vista.Principal;
 import abarrotesrios_magm.vista.ProveedoresPanel;
@@ -32,6 +34,8 @@ public class AbarrotesRios_MAGM {
         
         //Proveedor
         ProveedoresPanel prov = new ProveedoresPanel();
+        ProveedorPOO provPOO = new ProveedorPOO();
+        
         
         //Productos
         ProductosPanel produc = new ProductosPanel();
@@ -40,6 +44,7 @@ public class AbarrotesRios_MAGM {
         PrincipalControlador conPrin = new PrincipalControlador(pri, cli, prov, produc);
         
         ClienteControlador conCli = new ClienteControlador(cliPOO, cli, conBD);
+        ProveedorControlador conProv = new ProveedorControlador(provPOO, prov, conBD);
         conPrin.iniciar();
         pri.setVisible(true);
         
